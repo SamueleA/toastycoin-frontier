@@ -15,7 +15,7 @@ Vue.component('eth-address-output', {
       return this.address.substring(0,10) + "...";
     }
   },
-  template: "<a data-toggle='popover' data-placement='bottom' data-html='true' :data-content='popoverHtml' style='cursor:pointer'>{{formattedAddress}}</a>"
+  template: "<a tabindex=0 data-trigger='focus' data-toggle='popover' data-placement='bottom' data-html='true' :data-content='popoverHtml' style='cursor:pointer'>{{formattedAddress}}</a>"
 });
 
 Vue.component('duration-output', {
@@ -126,7 +126,7 @@ Vue.component('autorelease-output', {
   methods: {
     tick: function() {
       this.now = Math.floor(Date.now()/1000);
-      
+
       //determine display state
       if (this.state == 0 || this.state == 2) {
         this.displayState = 'interval';
