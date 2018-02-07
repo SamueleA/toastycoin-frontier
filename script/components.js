@@ -11,7 +11,29 @@ Vue.component('eth-address-output', {
   },
   computed: {
     etherscanAddressURL: function() {
-      return window.etherscanURL + "address/" + this.address;
+      let etherscanURL;
+      let networkId = web3.version.network;
+      //ethereum mainnet
+      if (networkId == 1) {
+        etherscanURL = 'https://etherscan.io/';
+      }
+      //ethereum testnet
+      else if (networkId == 3) {
+        etherscanURL = 'https://ropsten.etherscan.io/';
+      }
+      //ethereum testnet
+      else if (networkId == 4) {
+        etherscanURL = 'https://rinkeby.etherscan.io/';
+      }
+      //ethereum testnet
+      else if (networkId == 42) {
+        etherscanURL = 'https://kovan.etherscan.io/';
+      }
+      else {
+        etherscanURL = 'https://etherscan.io/';
+        console.error('unsupported network ID: no block explorer for the current network');
+      }
+      return etherscanURL + "address/" + this.address;
     },
     popoverHtml: function() {
       return "<span style='font-size:0.6em'>" + this.address + "</span><br><div class='row' style='border:0;padding:0;display:inline-block'><div class='col-sm-6' style='border:0;padding:0;display:inline-block'><button class='btn btn-basic' style='background-color:white; outline:none' onclick='copyTextToClipboard(" + '"' + this.address + '"' + ")'><img src='resources/copy_icon.png' width=20></button></div><div class='col-sm-6' style='border:0;padding:0;display:inline-block'><a href='" + this.etherscanAddressURL + "' target='_blank' class='btn btn-basic' style='background-color:white;border:1'><img src='resources/chain_icon.png' width=20></button></div></div>";
@@ -72,9 +94,31 @@ Vue.component('bop-state-output', {
 
 Vue.component('create-result-row', {
   props: ['result'],
-  data: function() {
-    return {
-      etherscanURL: window.etherscanURL
+  computed: {
+    etherscanURL: function() {
+      let etherscanURL;
+      let networkId = web3.version.network;
+      //ethereum mainnet
+      if (networkId == 1) {
+        etherscanURL = 'https://etherscan.io/';
+      }
+      //ethereum testnet
+      else if (networkId == 3) {
+        etherscanURL = 'https://ropsten.etherscan.io/';
+      }
+      //ethereum testnet
+      else if (networkId == 4) {
+        etherscanURL = 'https://rinkeby.etherscan.io/';
+      }
+      //ethereum testnet
+      else if (networkId == 42) {
+        etherscanURL = 'https://kovan.etherscan.io/';
+      }
+      else {
+        etherscanURL = 'https://etherscan.io/';
+        console.error('unsupported network ID: no block explorer for the current network');
+      }
+      return etherscanURL;
     }
   },
   template:
