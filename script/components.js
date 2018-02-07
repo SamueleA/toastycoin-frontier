@@ -24,7 +24,7 @@ Vue.component('eth-address-output', {
       }
     }
   },
-  template: "<a tabindex=0 data-trigger='focus' data-toggle='popover' data-placement='bottom' data-html='true' :data-content='popoverHtml' style='cursor:pointer'>{{formattedAddress}}</a>"
+  template: "<a tabindex=0 data-trigger='focus' data-toggle='popover' data-placement='bottom' data-html='true' :data-content='popoverHtml' style='cursor:pointer; outline:none;'>{{formattedAddress}}</a>"
 });
 
 Vue.component('duration-output', {
