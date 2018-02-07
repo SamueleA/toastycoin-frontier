@@ -71,7 +71,7 @@
               <div v-else>The worker can now trigger the auto-release!</div>
             </div>
             <button v-if="BOP.state == 1 && userIsPayer" class="btn btn-info" type="button" onclick="delayAutorelease()">Delay</button>
-            
+
           </div>
           <div class="col-sm-1"></div>
         </div>
@@ -79,7 +79,7 @@
           <div class="col-sm-3">
             <div class="well well-sm" style="background-color:#bbffff;display:inline-block">
               <b>Payer:</b><br>
-              <eth-address-output :address=BOP.payer></eth-address-output>
+              <eth-address-output :address=BOP.payer :shorten-to=10 ></eth-address-output>
             </div>
           </div>
           <div class="col-sm-6">
@@ -125,7 +125,7 @@
           <div class="col-sm-3" style="align-items:center">
             <div v-if="BOP.state != 0" class="well well-sm" style="background-color:#bbffff;display:inline-block">
               <b>Worker:</b><br>
-              <eth-address-output :address=BOP.worker></eth-address-output>
+              <eth-address-output :address=BOP.worker :shorten-to=10></eth-address-output>
             </div>
           </div>
         </div>
