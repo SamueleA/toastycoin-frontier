@@ -89,7 +89,7 @@ Vue.component('bop-state-output', {
         return "#aaaaaa";
     }
   },
-  template: "<div class='well well-sm' style='display:inline-block;margin-bottom:0' v-bind:style='{backgroundColor:color}'><h3 style='margin-top:0;margin-bottom:0'>{{formattedState}}</h3></div>"
+  template: "<div class='well well-sm' style='display:inline-block;margin-bottom:0; color:black;' v-bind:style='{backgroundColor:color}'><h3 style='margin-top:0;margin-bottom:0'>{{formattedState}}</h3></div>"
 });
 
 Vue.component('create-result-row', {
