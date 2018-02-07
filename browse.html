@@ -66,7 +66,7 @@
         <tbody>
           <tr v-for="BOP in BOPs">
             <td @click="goToInteractPage(BOP.address)" style="cursor:pointer">
-              <eth-address-output :address=BOP.address ></eth-address-output><br>
+              <eth-address-output :address=BOP.address :shorten-to=10></eth-address-output><br>
               <bop-state-output :state=BOP.state></bop-state-output><br>
               <autorelease-output :state="BOP.state" :autorelease-interval="BOP.autoreleaseInterval" :autorelease-time="BOP.autoreleaseTime"></autorelease-output>
             </td>
