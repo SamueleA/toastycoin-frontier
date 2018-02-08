@@ -168,12 +168,19 @@ Vue.component('bop-event-row', {
 });
 
 Vue.component('autorelease-output', {
-  props: ['state', 'autoreleaseInterval', 'autoreleaseTime'],
+  props: {
+    state:{},
+    autoreleaseInterval:{},
+    autoreleaseTime:{},
+    refresh:{
+      default: false
+    }
+  },
   data: function() {
     return {
       now: Math.floor(Date.now()/1000),
       intervalHandle: null,
-      displayState: null
+      displayState: null,
     }
   },
   methods: {
@@ -202,15 +209,19 @@ Vue.component('autorelease-output', {
         return "Autorelease available!";
     },
     timeText: function() {
-      if (this.displayState == 'interval')
+      if (this.displayState == 'interval') {
         return humanizeDuration(this.autoreleaseInterval*1000, {largest:2});
-      else if (this.displayState == 'countdown')
+        }
+      else if (this.displayState == 'countdown') {
         return humanizeDuration((this.autoreleaseTime - this.now)*1000, {largest:2});
+        }
     }
   },
   mounted: function() {
     this.tick();
-    this.intervalHandle = setInterval(this.tick, 1000);
+    if (this.refresh) {
+      this.intervalHandle = setInterval(this.tick, 1000);
+    }
   },
   template: "<div class='well well-sm' style='margin-bottom:0;display:inline-block;background-color:#ffdd99'>{{labelText}}<br>{{timeText}}</div>"
 });
