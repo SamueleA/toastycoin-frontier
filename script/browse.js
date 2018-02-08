@@ -128,7 +128,7 @@ function onWeb3Ready() {
   BOPFactory.contract = web3.eth.contract(BOPFactory.ABI);
   BOPFactory.contractInstance = BOPFactory.contract.at(BOPFactory.address);
 
-  setInterval(fetchAllBOPs, 1000);
+  fetchAllBOPs();
 }
 
 window.addEventListener('load', function() {
