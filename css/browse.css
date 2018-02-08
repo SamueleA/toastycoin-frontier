@@ -1,0 +1,17 @@
+.bop-state-output>div {
+  position:relative;
+}
+
+.bop-state-output>div:after {
+    content: '';
+    position: absolute;top:0; left:0;
+    width: 100%; height:100%;
+    background:rgba(0,0,0,0.15);
+    opacity: 0;
+    transition: all 0.25s;
+    -webkit-transition: all 0.25s;
+}
+
+.bop-state-output>div:hover:after {
+    opacity: 1;
+}

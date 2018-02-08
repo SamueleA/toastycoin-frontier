@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <!--<link rel="stylesheet" href="css/border.css">-->
+  <link rel="stylesheet" href="css/browse.css">
+
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script src="https://cdn.rawgit.com/yahoo/xss-filters/master/dist/xss-filters.min.js"></script>
@@ -67,7 +69,7 @@
           <tr v-for="BOP in BOPs">
             <td>
               <eth-address-output :address=BOP.address :shorten-to=10></eth-address-output><br>
-              <a @click="goToInteractPage(BOP.address)" style="cursor:pointer;"><bop-state-output :state=BOP.state></bop-state-output></a><br>
+              <a class="bop-state-output" @click="goToInteractPage(BOP.address)" style="cursor:pointer;"><bop-state-output :state=BOP.state></bop-state-output></a><br>
               <autorelease-output :state="BOP.state" :autorelease-interval="BOP.autoreleaseInterval" :autorelease-time="BOP.autoreleaseTime"></autorelease-output>
             </td>
             <td>
