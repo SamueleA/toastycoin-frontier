@@ -168,23 +168,15 @@ Vue.component('bop-event-row', {
 });
 
 Vue.component('autorelease-output', {
-  props: {
-    state:{},
-    autoreleaseInterval:{},
-    autoreleaseTime:{},
-    refresh:{
-      default: false
-    }
-  },
+  props: ['state', 'autoreleaseInterval', 'autoreleaseTime'],
   data: function() {
     return {
       now: Math.floor(Date.now()/1000),
-      intervalHandle: null,
       displayState: null,
     }
   },
   methods: {
-    tick: function() {
+    calculate: function() {
       this.now = Math.floor(Date.now()/1000);
 
       //determine display state
@@ -218,10 +210,7 @@ Vue.component('autorelease-output', {
     }
   },
   mounted: function() {
-    this.tick();
-    if (this.refresh) {
-      this.intervalHandle = setInterval(this.tick, 1000);
-    }
+    this.calculate();
   },
   template: "<div class='well well-sm' style='margin-bottom:0;display:inline-block;background-color:#ffdd99'>{{labelText}}<br>{{timeText}}</div>"
 });
