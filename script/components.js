@@ -172,7 +172,7 @@ Vue.component('autorelease-output', {
   data: function() {
     return {
       now: Math.floor(Date.now()/1000),
-      displayState: null,
+      displayState: null
     }
   },
   methods: {
@@ -194,9 +194,9 @@ Vue.component('autorelease-output', {
   computed: {
     labelText: function() {
       if (this.displayState == 'interval')
-        return "Autorelease Interval:";
+        return "Autorelease Interval:<br>";
       else if (this.displayState == 'countdown')
-        return "Autorelease in";
+        return "Autorelease in<br>";
       else if (this.displayState == 'countdownDone')
         return "Autorelease available!";
     },
@@ -212,5 +212,5 @@ Vue.component('autorelease-output', {
   mounted: function() {
     this.calculate();
   },
-  template: "<div class='well well-sm' style='margin-bottom:0;display:inline-block;background-color:#ffdd99'>{{labelText}}<br>{{timeText}}</div>"
+  template: "<div class='well well-sm text-left' style='margin-bottom:0;display:flex;justify-content:center;flex-direction:column;background-color:#ffdd99;width:160px;height:60px;'><span  v-html='labelText'></span>{{timeText}}</div>"
 });
