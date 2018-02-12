@@ -1,19 +1,17 @@
+//first six decimals in ether, next six decimals in Gwei, rest in wei
 function formatWeiValue(wei) {
     if (typeof web3 === "undefined") {
         var web3 = new Web3();
     }
     var ether = web3.fromWei(wei, "ether");
-    if (wei.toString().length > 17)
-        return ether + " ETH";
-    else if (wei.toString().length > 14)
-        return ether * 1000 + " mETH";
-    else if (wei.toString().length > 11)
-        return ether * 1000000 + " \u00B5ETH";
-    else if (wei.toString().length > 8)
-        return ether * 1000000000 + " nETH";
-    else if (wei.toString().length > 5)
-        return ether * 1000000000000 + " pETH";
-    else return wei.toString() + " wei";
+    if (wei.toString().length > 12)
+        return ether + " Ether";
+    else if (wei.toString().length > 6)
+        return ether * 1000000000 + " Gwei";
+    else if (wei.toString().length > 1)
+        return wei.toString() + " wei";
+    else
+        return wei.toString() + " Ether";
 }
 
 function prepareBOPFactoryContract() {
